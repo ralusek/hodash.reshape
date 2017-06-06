@@ -14,6 +14,9 @@ function reshape(mapping, obj, config) {
   for (const key in mapping) {
     const value = mapping[key];
 
+    if(!value)
+      throw new Error('hodash.reshape mapped value for ' + key + ' must be a string, function, or object.');
+
     let mapped;
     // Assume .call and .apply means it's a function.
     if (value.call && value.apply) {
