@@ -15,8 +15,8 @@ function reshape(mapping, obj, config) {
     const value = mapping[key];
 
     let mapped;
-    // Assume .call and .apply means it's a function.
-    if (value.call && value.apply) {
+
+    if (typeof value === 'function') {
       try { mapped = value(obj); }
       catch (err) {}
     }
