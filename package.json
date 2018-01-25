@@ -2,6 +2,10 @@
   "name": "hodash.reshape",
   "version": "1.0.1",
   "description": "Allows a mapping to be defined for reshaping an object.",
+  "repository" : {
+    "type": "git",
+    "url": "https://github.com/ralusek/hodash.reshape"
+  },
   "main": "lib/index.js",
   "scripts": {
     "compile": "babel --presets es2015,stage-0 -d lib/ src/",
