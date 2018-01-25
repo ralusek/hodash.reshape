@@ -7,7 +7,7 @@ The objective of this utility is to map objects from one shape to another. The m
 
 ##### Include the package.
 ``` javascript
-const _reshape = require('lodash.reshape');
+const _reshape = require('hodash.reshape');
 ```
 
 
