@@ -1,29 +1,27 @@
 'use strict';
 
-const __get = require('hodash.get');
+const get = require('hodash.get');
 
 
 /**
  *
  */
-function reshape(mapping, obj, config) {
-  config = config || {};
-
+function reshape(mapping, obj, {
+  sandboxed = true,
+  undefinedAsNull = false
+} = {}) {
   const output = {};
 
   for (const key in mapping) {
     const value = mapping[key];
 
     let mapped;
-    // Assume .call and .apply means it's a function.
-    if (value.call && value.apply) {
-      try { mapped = value(obj); }
-      catch (err) {}
-    }
-    else if (typeof value === 'string') mapped = __get(obj, value);
+
+    if (typeof value === 'function') mapped = sandboxed ? get(() => value(obj, { get })) : value(obj, { get });
+    else if (typeof value === 'string') mapped = get(obj, value);
     else mapped = value;
 
-    if (mapped === undefined && config.undefinedAsNull) mapped = null;
+    if (mapped === undefined && undefinedAsNull) mapped = null;
     output[key] = mapped;
   }
 

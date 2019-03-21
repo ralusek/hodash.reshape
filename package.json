@@ -1,8 +1,8 @@
 {
   "name": "hodash.reshape",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Allows a mapping to be defined for reshaping an object.",
-  "repository" : {
+  "repository": {
     "type": "git",
     "url": "https://github.com/ralusek/hodash.reshape"
   },
@@ -27,6 +27,6 @@
     "babel-preset-stage-0": "6.24.1"
   },
   "dependencies": {
-    "hodash.get": "1.0.1"
+    "hodash.get": "2.0.0"
   }
 }
