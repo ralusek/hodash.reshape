@@ -1,32 +1,46 @@
 {
   "name": "hodash.reshape",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Allows a mapping to be defined for reshaping an object.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ralusek/hodash.reshape"
-  },
-  "main": "lib/index.js",
-  "scripts": {
-    "compile": "babel --presets es2015,stage-0 -d lib/ src/",
-    "prepublish": "npm run compile"
-  },
   "keywords": [
     "lodash",
     "hodash",
     "mapping",
-    "shapping",
+    "shaping",
     "schema",
     "transform"
   ],
   "author": "Tomas Savigliano",
   "license": "MIT",
-  "devDependencies": {
-    "babel-cli": "6.26.0",
-    "babel-preset-es2015": "6.24.1",
-    "babel-preset-stage-0": "6.24.1"
+  "main": "./lib/index.js",
+  "files": [
+    "/lib"
+  ],
+  "scripts": {
+    "build": "npx ttsc",
+    "start": "npm run build",
+    "test": "npm run build && mocha -r ts-node/register tests/**/*.test.ts",
+    "prettify": "npx prettier --write '**/*.ts'"
   },
-  "dependencies": {
-    "hodash.get": "2.0.0"
+  "husky": {
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.11.11",
+    "@types/uuid": "3.4.5",
+    "@types/validator": "10.11.3",
+    "chai": "^4.3.7",
+    "husky": "^8.0.2",
+    "mocha": "^10.1.0",
+    "prettier": "^2.8.0",
+    "pretty-quick": "2.0.1",
+    "ts-node": "^10.9.1",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.3.0",
+    "ttypescript": "^1.5.13",
+    "typescript": "^4.9.3",
+    "typescript-transform-paths": "^3.4.4"
   }
 }
