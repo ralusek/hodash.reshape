@@ -12,9 +12,9 @@ export default function reshape<
 ) {
   return (input: I) => {
     return Object.keys(mapping).reduce((output: O, key: keyof O) => {
-      if (typeof mapping[key] === 'string') {
+      if (typeof mapping[key] === 'string' || Array.isArray(mapping[key])) {
         const inputKey = mapping[key] as keyof I;
-        const value = get(input, inputKey as string);
+        const value = get(input, inputKey as string | string[]);
         // @ts-ignore
         output[key] = value;
       }
